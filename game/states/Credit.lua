@@ -1,0 +1,2 @@
+local credit = {}
+return credit

@@ -1,0 +1,7 @@
+*.lnk
+/Useful Examples
+/tests
+/deprecated
+test.lua
+test2.lua
+testGame.lua
