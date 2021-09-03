@@ -58,7 +58,7 @@ function battle:enter(previous,gui,bgms,game,plotpath)
 
 	-- Initialize local variables in this state	
 	timer = Timer.new()
-	gamethread = love.thread.newThread("game/utils/gameThread.lua")
+	gamethread = love.thread.newThread("game/utils/gamethread.lua")
 	PTypes,CTypes = {},{}
 	for i = 1,4 do
 		PTypes[i],CTypes[i] = {},{}

@@ -1,6 +1,6 @@
 gamestate = require "lib.hump.gamestate"
 Timer = require "lib.hump.timer"
-Slab = require "lib.Slab"
+Slab = require "lib.slab"
 require "lib.Tserial"
 require "lib.loveframes"
 Class = require "lib.hump.class"

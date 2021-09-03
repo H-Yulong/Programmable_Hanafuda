@@ -147,7 +147,7 @@ function compile(s)
         
         -- Add yaku name, definition to the tables
         yakus[name] = loadstring(code)()
-        print(code)
+        --print(code)
         namelist.yakus[#namelist.yakus+1] = name
         records.yakus[name] = false 
         

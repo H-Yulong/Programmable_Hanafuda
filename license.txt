@@ -7,20 +7,14 @@ This software is provided 'as-is', without any express or implied warranty.
 In no event will the authors be held liable for any damages arising from
 the use of this software.
 
-Permission is granted to anyone to use this software for any purpose,
-including commercial applications, and to alter it and redistribute it
+Permission is granted to anyone to use this software for any purpose apart from commercial applications. Permissions is also granted to anyone to alter it and redistribute it
 freely, subject to the following restrictions:
 
 1. The origin of this software must not be misrepresented; you must not
-claim that you wrote the original software. If you use this software in a
-product, an acknowledgment in the product documentation is required.
+claim that you wrote the original software. 
 
 2. Altered source versions must be plainly marked as such, and must not
 be misrepresented as being the original software.
 
 3. The copyright notice and this permission notice shall be included in
 all copies or substantial portions of the Software.
-
-4. Except as contained in this notice, the name(s) of the above copyright holders
-shall not be used in advertising or otherwise to promote the sale, use or
-other dealings in this Software without prior written authorization.

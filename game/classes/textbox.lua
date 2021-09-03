@@ -46,7 +46,8 @@ function TextBox:updateText(text)
 	self.textlines = {}
 	-- 20 letters per line => 18 per line
 	local i = 1
-	for sub in string.gmatch(text,"[^\n]+\n") do 
+	for sub in string.gmatch(text,"[^\n]+\n") do
+		sub = sub:sub(1, #sub-1)
 	    self.textlines[i] = sub
 	    while #sub >= 20 do
 			self.textlines[i] = sub:sub(1,19).."-"
