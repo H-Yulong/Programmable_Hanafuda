@@ -4,6 +4,7 @@ Welcome to the world of hanafuda koi-koi, a two-player card game using tradition
 
 ![Game snapshots](data/graphics/snapshots.png)
 *Snapshots of the game*
+
 *Note: these snapshots do not represent the final version.*
 
 ## Features
@@ -33,7 +34,7 @@ Welcome to the world of hanafuda koi-koi, a two-player card game using tradition
 1. Clone the repository to your computer.
 
 ```shell
-	git clone https://github.com/H-Yulong/Programmable_Hanafuda.git
+git clone https://github.com/H-Yulong/Programmable_Hanafuda.git
 ```
 
 2. Create a *.zip* file with the repository. Make sure that the **main.lua is in the root directory of the archive**.
@@ -61,6 +62,25 @@ For hanafuda koi-koi rules, check the [wiki](https://en.wikipedia.org/wiki/Koi-K
 Hanafuda plays an important role in Japanese pop culture. The game company *Nintendo* started its business by producing hanafuda cards, and hanafuda appeared in lots of game/anime works, such as *Sakura Wars*, *Summar Wars*, and the *Yazuka series*.
 
 ## Future plans
+
+These features are to be added in the short term:
+
+- Background music and sound effects
+- More difficult AIs (normal, hard)
+- Implementing charater's facial expressions
+- A tutorial
+- Implementing the setting page
+
+These features are to be added in the long term:
+
+- An in-game IDE-like text editor for writing yaku definitions
+- Creating better charater portraits
+- Designing scenarios
+- Showing yakus
+- Adding more graphical resources
+- Completing the toolbox in the battle page
+
+*The university's term starts in October, and my update frequency would be much lower since then.*
 
 ## Grammars of the hanafuda language
 Please see the programmer's guide (*Not ready yet*).
