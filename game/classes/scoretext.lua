@@ -14,7 +14,7 @@ function ScoreText:init(list,x,y,text_top, text_bottom, score)
 		self.loc_y[i] = y + 45*i - 5
 	end
 
-	self.page = 0
+	self.index = 0
 
 	self.textlines = {}
 	self.score = score
@@ -63,9 +63,9 @@ function ScoreText:draw()
 
 	-- Draw the list items
 	for i = 1,6 do
-		if self.textlines[i + 6*self.page] then
-			local text = self.textlines[i + 6*self.page][1]
-			local small = self.textlines[i + 6*self.page][2]
+		if self.textlines[i + self.index] then
+			local text = self.textlines[i + self.index][1]
+			local small = self.textlines[i + self.index][2]
 			if small then
 				love.graphics.setFont(FONT_SMALL)
 				love.graphics.print(text, self.x, self.loc_y[i], 0,1,1)
@@ -76,37 +76,51 @@ function ScoreText:draw()
 		end
 	end
 
-	-- Draw buttons for turning pages
-	if self:hasPreviousPage() then
+	-- Draw buttons for scrolling
+	if self:hasPrevious() then
 		love.graphics.polygon("fill", self.x+200,self.y+30, self.x+195,self.y+37, self.x+205,self.y+37 )
 	end
-	if self:hasNextPage() then
+	if self:hasNext() then
 		love.graphics.polygon("fill", self.x+200,self.y+307, self.x+195,self.y+300, self.x+205,self.y+300)
 	end
 
 	love.graphics.setNewFont(10)
 end
 
-function ScoreText:hasPreviousPage()
-	return self.page > 0
+function ScoreText:hasPrevious()
+	return self.index > 0
 end
 
-function ScoreText:hasNextPage()
-	return #self.textlines > ((self.page + 1) * 6)
+function ScoreText:hasNext()
+	return #self.textlines > (self.index + 6)
 end
 
 function ScoreText:mousepressed(x,y,button)
 	if (button == 1) then
-		if self:hasPreviousPage() then
-			if (x >= self.x) and (x <= self.x + 220) and (y >= self.y) and (y < self.y+175) then
-				self.page = self.page - 1
+		if self:hasPrevious() then
+			if (x >= self.x - 5) and (x <= self.x + 400) and (y >= self.y - 5) and (y < self.y+175) then
+				self.index = self.index - 1
 			end
 		end
 
-		if self:hasNextPage() then
-			if (x >= self.x) and (x <= self.x + 220) and (y >= self.y+175) and (y <= self.y+350) then
-				self.page = self.page + 1
+		if self:hasNext() then
+			if (x >= self.x - 5) and (x <= self.x + 400) and (y >= self.y+175) and (y <= self.y+355) then
+				self.index = self.index + 1
 			end
+		end
+	end
+end
+
+function ScoreText:on(x,y)
+	return (x >= self.x - 5) and (y >= self.y - 5) and (x <= self.x + 400) and (y <= self.y + 355)
+end
+
+function ScoreText:wheelmoved(dx,dy)
+	if self:on(love.mouse.getPosition()) then
+		if (dy > 0) and self:hasPrevious() then
+			self.index = self.index - 1
+		elseif (dy < 0) and self:hasNext() then
+			self.index = self.index + 1
 		end
 	end
 end

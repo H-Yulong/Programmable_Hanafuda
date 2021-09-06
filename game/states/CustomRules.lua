@@ -51,8 +51,8 @@ local OYA_FIRST_TURN = {
 	CustomRulesText("Random",833,369) 
 }
 
-local START_BUTTON = MenuText("Start Now", 930, 538, 870)
-local BACK_BUTTON = MenuText("Back", 1012, 580, 955)
+local START_BUTTON = MenuText("Start Now", 865, 538, 870, 225)
+local BACK_BUTTON = MenuText("Back", 865, 580, 955, 225)
 
 local MENU_OPTIONS = {ROUNDS, SCORING, DIFFICULTY, OYA, OYA_FIRST_TURN}
 

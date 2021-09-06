@@ -128,6 +128,8 @@ function afterbattle:mousepressed(x,y,button)
 end
 
 function afterbattle:wheelmoved(dx,dy)
+	yaku_text:wheelmoved(dx,dy)
+	bonus_text:wheelmoved(dx,dy)
 	gamelog:wheelmoved(dx,dy)
 end
 

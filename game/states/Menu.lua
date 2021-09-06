@@ -17,17 +17,17 @@ local MOON = MenuElement("data/graphics/resources/menu_moon.png",90,28)
 local TITLE = MenuElement("data/graphics/resources/menu_title.png",595,28)
 local TEXTS = {
 	MenuText("Custom Game", 1017, 310, 960, 225),
-	MenuText("Scenario", 1104, 352, 1050),
-	MenuText("Tutorial", 1114, 394, 1060),
-	MenuText("Settings", 1110, 436, 1050),
-	MenuText("Quit", 1170, 478, 1110),
+	MenuText("Scenario", 1017, 352, 1050, 225),
+	MenuText("Tutorial", 1017, 394, 1060, 225),
+	MenuText("Settings", 1017, 436, 1050, 225),
+	MenuText("Quit", 1017, 478, 1110, 225),
 }
 
 local CUSTOM = {
-	MenuText("Start Now", 1079, 310, 1025),
-	MenuText("Continue", 1094, 352, 1030),
-	MenuText("Custom Rules", 1024, 394, 970),
-	MenuText("Back", 1162, 436, 1108),
+	MenuText("Start Now", 1017, 310, 1025, 225),
+	MenuText("Continue", 1017, 352, 1030, 225),
+	MenuText("Custom Rules", 1017, 394, 970, 225),
+	MenuText("Back", 1017, 436, 1108, 225),
 }
 
 local text = "Type here! --"

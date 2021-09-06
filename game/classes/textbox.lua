@@ -44,18 +44,61 @@ end
 
 function TextBox:updateText(text)
 	self.textlines = {}
-	-- 20 letters per line => 18 per line
-	local i = 1
+	--[[
+		20 letters per line
+
+		Do not write words that across two lines,
+		unless this word is longer than 20 letters.
+
+		Do not show punctuations at the beginning of a line.
+	]]
+	local i = 0
+
 	for sub in string.gmatch(text,"[^\n]+\n") do
-		sub = sub:sub(1, #sub-1)
-	    self.textlines[i] = sub
-	    while #sub >= 20 do
-			self.textlines[i] = sub:sub(1,19).."-"
-			i = i + 1
-			sub = sub:sub(20)
-		end
-		self.textlines[i] = sub
-	    i = i + 1
+		i = i + 1
+		self.textlines[i] = ""
+		local capacity = 20
+		-- Remove "\n" at the end, add a space at the end
+		sub = sub:sub(1, #sub-1).." "
+	
+		for word in string.gmatch(sub, "[^ ]+ ") do
+
+	    	if capacity + 1 >= #word then
+	    		self.textlines[i] = self.textlines[i]..word
+
+	    		capacity = capacity - #word
+	    	elseif #word <= 20 then
+	    		-- Write in the next line if space is not enough
+	    		self.textlines[i+1] = word
+	    		capacity = 20 - #word
+	    		i = i + 1
+	    	else
+	    		-- Write multi-line text, using "-"
+	    		-- Some condition testing to make pretty textlines.
+
+	    		if capacity >= 3 then
+		    		self.textlines[i] = self.textlines[i]..word:sub(1,capacity-1).."-"
+		    		word = word:sub(capacity)
+		    	end
+
+	    		i = i + 1
+
+	    		while #word >= 20 do
+	    			self.textlines[i] = word:sub(1,19).."-"
+	    			word = word:sub(20)
+	    			i = i + 1
+	    		end
+	    		
+	    		if #word == 2 then
+	    			self.textlines[i-1] = self.textlines[i-1]:sub(1,19)..word
+	    			i = i - 1
+	    			capacity = 20
+	    		else
+		    		self.textlines[i] = word
+		    		capacity = 20 - #word
+	    		end
+	    	end
+	    end
 	end
 end
 

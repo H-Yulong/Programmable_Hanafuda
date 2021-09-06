@@ -315,6 +315,9 @@ function battle:update(dt)
 					self.state = "koikoi"
 					message_channel:pop()
 					koikoi_window.visible = true
+					for i,v in ipairs(gamedata.board.PHand) do
+						cards[v].respond = false
+					end
 				elseif message.type == "revealed" then
 					-- More complicated than this...
 					cards[message.card].visible = true
@@ -417,6 +420,9 @@ function battle:mousepressed(x,y,button)
 			player_channel:push(true)
 			self.state = "normal"
 			koikoi_window.visible = false
+			for i,v in ipairs(gamedata.board.PHand) do
+				cards[v].respond = true
+			end
 		elseif koikoi_window:onNo(x,y) then
 			player_channel:push(false)
 			self.state = "normal"

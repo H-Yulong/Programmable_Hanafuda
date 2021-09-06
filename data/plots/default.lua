@@ -36,9 +36,9 @@ local PLAYER_DIALOGS = {
 	koikoi = function(self)
 		local text = "You got these yakus:\n"
 		for i,v in ipairs(self.yakulist) do
-			text = text..v..","
+			text = text..v..", "
 		end
-		text = text:sub(1,#text-1).."\nwith total score "
+		text = text:sub(1,#text-2).."\nwith total score "
 		text = text..tostring(self.yakulist.score)..".\n \nKoikoi?\n"
 		return text
 		
