@@ -1,6 +1,6 @@
 # Welcome to Programmable Hanafuda
 
-Welcome to the world of hanafuda koi-koi, a two-player card game using traditional Japanese-style cards. There are many varients of koi-koi rules but no game was able to include them all -- until now. With the help of a mini scirpt language, users can play with their self-defined rules, i.e. *yakus*, against computers.
+Welcome to the world of hanafuda koi-koi, a two-player card game using traditional Japanese-style cards. There are many varients of koi-koi rules but no game was able to include them all -- until now. With the help of a Domain Specific Language (DSL), users can play with their self-defined rules, i.e. *yakus*, against computers.
 
 ![Game snapshots](data/graphics/snapshots.png)
 *Snapshots of the game*
