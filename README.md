@@ -31,6 +31,8 @@ Welcome to the world of hanafuda koi-koi, a two-player card game using tradition
 
 ### Windows
 
+0. Install the [LOVE](https://love2d.org/) 2D game engine.
+
 1. Clone the repository to your computer.
 
 ```shell
