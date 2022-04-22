@@ -187,7 +187,7 @@ function battle:draw()
 	love.graphics.draw(background,400,0)
 
 	--Dynamicly show deck depth
-	local count = #gamedata.board.CFlip + #gamedata.board.PFlip + 8
+	local count = #gamedata.board.CFlip + #gamedata.board.PFlip + 8 -- ??
 	for i=count,1,-1 do
 		love.graphics.draw(cardback,DX+i,DY+i)
 	end

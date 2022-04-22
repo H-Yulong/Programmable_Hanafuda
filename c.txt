@@ -1,0 +1,47 @@
+
+## Grammar of the Hanafuda script language
+
+There are 4 types of definitions: *yaku*, *precheck*, *bonus*, and *name*.
+
+Each definition must end with a ';'.
+
+Each card corresponds to a number. For example, the *sake* is number 33 and the *hana* is number 9.
+
+### yaku 
+
+Yaku definition is written in this way:
+
+yaku *name* = *yaku_expr* with score *score_expr*
+
+The easiest example: yaku hanami_sake = 9 and 33 with score 1;
+
+Detailed definitions:
+
+*yaku_expr* ::= 
+	*card* | oya 
+	| #*cardtype* *logic_op* *number* | #*cardtype* *logic_op* *number* accu 
+	| not *yaku_expr* | *yaku_expr* and *yaku_expr* | *yaku_expr* or *yaku_expr*
+    | (*yaku_expr*)
+
+*score_expr* ::= number | #*cardtype* | (*score_expr*) | *score_expr* *arith_op* *score_expr* | 
+
+*card* ::= 
+	[1-card_range]
+	| one of the self-defined cardnames
+
+*cardtype* ::= 
+	kasu | tan | tane | ko | koi 
+	| month *number* | month now 
+	| groupof *number*
+
+*logic_op* ::= > | < | >= | <= | == | <>
+
+*arith_op* ::= + | - | * | / | ^
+
+Keyword "accu" means that you are comparing with an accumulator instead of a constant, like standard yaku "kasu". An accumulator is updated everytime when this yaku is achieved.
+
+Keywords "month now" means the current month. Keywords "groupof" is for checking the groups of cards with the same suit
+
+The language is essentially a [regular grammar](https://en.wikipedia.org/wiki/Regular_grammar) expect the parentheses. It is deliberatly designed to be *not too expressive*. 
+
+15600/021121/50

@@ -276,7 +276,11 @@ function customrules:mousepressed(x,y,button)
 			newgame(board,env)
 			gamestate.switch(states.battle,gui_resource,"bgm-here-do-it-later",{board = board,env = env} --[[The gamedata]],"data.plots.default")
 		
-		elseif SCORING[1]:on(x,y) and SCORING[1].gray then env.scoring = "adding"
+    elseif SCORING[1]:on(x,y) and SCORING[1].gray then 
+      env.scoring = "adding"
+      -- Cannot play endless games in the adding mode
+      if env.total_rounds == "endless" then env.total_rounds = 12 end
+      
 		elseif SCORING[2]:on(x,y) and SCORING[2].gray then env.scoring = "taking"
 
 		elseif DIFFICULTY[1]:on(x,y) and DIFFICULTY[1].gray then env.difficulty = "easy" 
